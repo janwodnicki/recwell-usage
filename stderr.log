@@ -1,0 +1,72 @@
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:31: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
+/Users/admin/Documents/bin/nicusage/usage.py:37: DeprecationWarning: find_elements_by_* commands are deprecated. Please use find_elements() instead
+  trackers = driver.find_elements_by_class_name('live-tracker')
+/usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/webelement.py:446: UserWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  warnings.warn("find_element_by_* commands are deprecated. Please use find_element() instead")
