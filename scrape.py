@@ -8,6 +8,17 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 from settings import DF_NAME, USAGE_TABLE_NAME, LIVE_USAGE_URL
 
+def get_trackers(driver):
+    """
+    get_trackers finds RecWell live usage elements.
+
+    :param driver: webdriver object.
+    :return: list of webdriver elements.
+    """
+    driver.get(LIVE_USAGE_URL)
+    time.sleep(3)
+    return driver.find_elements(By.CLASS_NAME, 'live-tracker')
+
 def tracker_details(tracker):
     """
     tracker_details extracts text from webdriver element corresponding to RecWell live usage.
@@ -23,28 +34,32 @@ def tracker_details(tracker):
     ]
     return {col: tracker.find_element(By.CLASS_NAME, class_).text for class_, col in class_col_pairs}
 
+def save_updates(df):
+    """
+    save_updates saves DataFrame to SQLite database.
+
+    :param df: DataFrame object.
+    """
+    dtypes = dict(
+        current_count='Integer',
+        max_count='Integer'
+    )
+    con = sqlite3.connect(DF_NAME)
+    df.to_sql(USAGE_TABLE_NAME, con, if_exists='replace', index=False, dtype=dtypes)
+    con.close()
+
 def main():
     # Initialize webdriver
     firefox_options = Options()
     firefox_options.add_argument('--headless')
     driver = webdriver.Firefox(options=firefox_options)
 
-    # Find live-tracker elements
-    driver.get(LIVE_USAGE_URL)
-    time.sleep(3)
-    trackers = driver.find_elements(By.CLASS_NAME, 'live-tracker')
-
     # Extract data from live-tracker elements and create df
-    trackers_details = [tracker_details(tracker) for tracker in trackers]
-    df = pd.DataFrame(trackers_details)
+    trackers = get_trackers(driver)
+    data = [tracker_details(t) for t in trackers]
+    df = pd.DataFrame(data)
     df['timestamp'] = dt.datetime.now()
-
-    # Append dataframe to database table
-    conn = sqlite3.connect(DF_NAME)
-    df.to_sql(USAGE_TABLE_NAME, conn, if_exists='append', index=False)
-
-    # Close connections
-    conn.close()
+    save_updates(df)
     driver.close()
     
 if __name__ == '__main__':

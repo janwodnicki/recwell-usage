@@ -2,7 +2,7 @@ import sqlite3
 import dateparser
 import pandas as pd
 import plotly.express as px
-from settings import DF_NAME
+from settings import DF_NAME, USAGE_TABLE_NAME
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -36,7 +36,7 @@ def reduce_updates(df):
 
 def main():
     conn = sqlite3.connect(DF_NAME)
-    df = pd.read_sql("select * from usage", conn)
+    df = pd.read_sql(f"select * from {USAGE_TABLE_NAME}", conn)
     df_update_time = df.apply(last_updated_to_datetime, axis=1)         
     matched = match_updates(df_update_time)
     reduced = reduce_updates(matched)
@@ -48,7 +48,7 @@ def main():
     fitness = reduced[reduced.location.str.contains('Fitness')]
     fig = px.scatter(fitness, x='timestamp', y='capacity', color='location')
     fig.update_yaxes(range=(0,2))
-    return fig
+    fig.show()
 
 if __name__ == '__main__':
     main()
