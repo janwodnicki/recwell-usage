@@ -6,7 +6,7 @@ import datetime as dt
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
-from settings import DF_NAME, USAGE_TABLE_NAME, LIVE_USAGE_URL
+from settings import DB_NAME, USAGE_TABLE_NAME, LIVE_USAGE_URL
 
 def get_trackers(driver):
     """
@@ -44,8 +44,8 @@ def save_updates(df):
         current_count='Integer',
         max_count='Integer'
     )
-    con = sqlite3.connect(DF_NAME)
-    df.to_sql(USAGE_TABLE_NAME, con, if_exists='replace', index=False, dtype=dtypes)
+    con = sqlite3.connect(DB_NAME)
+    df.to_sql(USAGE_TABLE_NAME, con, if_exists='append', index=False, dtype=dtypes)
     con.close()
 
 def main():
