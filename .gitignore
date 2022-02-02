@@ -1,6 +1,6 @@
 *.log
 *.ipynb
-*.df
+*.db
 *alias
 __pycache__
 .DS_Store
