@@ -5,7 +5,7 @@ import plotly.express as px
 from settings import DB_NAME, USAGE_TABLE_NAME
 
 import warnings
-warnings.filterwarnings("ignore")
+warnings.filterwarnings('ignore')
 
 def last_updated_to_datetime(row):
     timestamp_datetime = dateparser.parse(row.timestamp)

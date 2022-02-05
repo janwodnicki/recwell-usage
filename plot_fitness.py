@@ -9,7 +9,7 @@ def main():
     reduced['capacity'] = reduced.current_count / reduced.max_count
 
     fitness = reduced[reduced.location.str.contains('Fitness')]
-    fig = px.scatter(fitness, x='timestamp', y='capacity', color='location')
+    fig = px.scatter(fitness, x='update_time', y='capacity', color='location')
     fig.update_yaxes(range=(0,2))
     fig.show()
 
