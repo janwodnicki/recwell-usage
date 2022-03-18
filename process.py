@@ -7,29 +7,25 @@ from settings import DB_NAME, USAGE_TABLE_NAME
 import warnings
 warnings.filterwarnings('ignore')
 
-def last_updated_to_datetime(row):
-    timestamp_datetime = dateparser.parse(row.timestamp)
-    settings = dict(RELATIVE_BASE=timestamp_datetime)
-    last_updated_clean = row.last_updated.replace('Updated ', '').replace('moments', '0 minutes')
-
-    # Ignore updates older than an hour for simplicity, will be removed later
-    if 'minutes' in last_updated_clean:
-        update_time = dateparser.parse(last_updated_clean, settings=settings)
-    else:
-        update_time = None
-
-    row.last_updated = last_updated_clean
-    row['update_time'] = update_time
+def interpret_time(row):
+    settings = dict(RELATIVE_BASE=row.timestamp.to_pydatetime())
+    row.update_time = dateparser.parse(row.last_updated, settings=settings)
     return row
 
 def match_updates(df):
     df['match'] = None
     for i, row in df.iterrows():
         if not df.match[i] and row['update_time']:
-            deltas = (row['update_time'] - df.update_time)
-            delta_filter = deltas.dt.total_seconds().abs().le(600)
-            df.match[delta_filter] = i
+            matching = True
+            next_ind = i + 1
+            while matching and df.iloc[next_ind].update_time:
+                delta = row['update_time'] - df.iloc[next_ind].update_time
+                matching = abs(delta.total_seconds()) <= 600
+                if matching:
+                    df.iloc[next_ind].match = i
+                next_ind += 1
     return df
+
 
 def reduce_updates(df):
     reduced = df[df.last_updated.str.contains('minutes')]
