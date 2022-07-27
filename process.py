@@ -45,6 +45,7 @@ def clean_data(db_name=DB_NAME, table_name=USAGE_TABLE_NAME):
     """
     con = sqlite3.connect(db_name)
     df = pd.read_sql(f"SELECT * FROM {table_name}", con)
+    con.close()
 
     df = gen_update_time(df)
     df = df.dropna(subset=['update_time'])
