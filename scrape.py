@@ -1,3 +1,4 @@
+from locale import D_FMT
 import sqlite3
 import time
 import pandas as pd
@@ -52,9 +53,24 @@ def check_unique(rowA, rowB) -> bool:
         return abs(delta.total_seconds()) >= 600
     except Exception as e:
         return False
+    
+def check_table_exists(dbcon, tablename):
+    dbcur = dbcon.cursor()
+    dbcur.execute("""
+        SELECT COUNT(*)
+        FROM sqlite_master
+        WHERE tbl_name = '{0}'
+        """.format(tablename.replace('\'', '\'\'')))
+    if dbcur.fetchone()[0] == 1:
+        dbcur.close()
+        return True
+    dbcur.close()
+    return False
 
 def find_unique(df, db_name=DB_NAME, usage_table=USAGE_TABLE_NAME):
     con = sqlite3.connect(db_name)
+    if not check_table_exists(con, usage_table):
+        return df
     df_old = pd.read_sql(f"SELECT * FROM {usage_table} GROUP BY location HAVING MAX(timestamp)", con)
     df_new = pd.DataFrame([], columns = df.columns)
     for location in df.location.unique():
