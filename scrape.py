@@ -94,6 +94,7 @@ def get_raw_data():
     driver.close()
     df = pd.DataFrame(data)
     df['timestamp'] = dt.datetime.now()
+    return df
 
 def main(db_name=DB_NAME, usage_table=USAGE_TABLE_NAME, test=False):
     df = get_raw_data()
