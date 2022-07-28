@@ -56,6 +56,7 @@ def check_unique(rowA, rowB) -> bool:
 def find_unique(df, db_name=DB_NAME, usage_table=USAGE_TABLE_NAME):
     con = sqlite3.connect(db_name)
     df_old = pd.read_sql(f"SELECT * FROM {usage_table} GROUP BY location HAVING MAX(timestamp)", con)
+    con.close()
     df_new = pd.DataFrame([], columns = df.columns)
     for location in df.location.unique():
         rowA = df[df.location.str.contains(location)].iloc[0]
