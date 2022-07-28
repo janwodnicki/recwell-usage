@@ -82,7 +82,7 @@ def save_updates(df, db_name=DB_NAME, usage_table=USAGE_TABLE_NAME):
     df.to_sql(usage_table, con, if_exists='append', index=False, dtype=dtypes)
     con.close()
 
-def main(db_name=DB_NAME, usage_table=USAGE_TABLE_NAME, test=False):
+def get_raw_data():
     # Initialize webdriver
     firefox_options = Options()
     firefox_options.add_argument('--headless')
@@ -94,12 +94,14 @@ def main(db_name=DB_NAME, usage_table=USAGE_TABLE_NAME, test=False):
     driver.close()
     df = pd.DataFrame(data)
     df['timestamp'] = dt.datetime.now()
+
+def main(db_name=DB_NAME, usage_table=USAGE_TABLE_NAME, test=False):
+    df = get_raw_data()
     df = gen_update_time(df)
     df = find_unique(df, db_name, usage_table)
     if test:
         return df
-    else:
-        save_updates(df, db_name, usage_table)
+    save_updates(df, db_name, usage_table)
     
 if __name__ == '__main__':
     main()
