@@ -72,6 +72,7 @@ def find_unique(df, db_name=DB_NAME, usage_table=USAGE_TABLE_NAME):
     if not check_table_exists(con, usage_table):
         return df
     df_old = pd.read_sql(f"SELECT * FROM {usage_table} GROUP BY location HAVING MAX(timestamp)", con)
+    con.close()
     df_new = pd.DataFrame([], columns = df.columns)
     for location in df.location.unique():
         rowA = df[df.location.str.contains(location)].iloc[0]
@@ -98,7 +99,7 @@ def save_updates(df, db_name=DB_NAME, usage_table=USAGE_TABLE_NAME):
     df.to_sql(usage_table, con, if_exists='append', index=False, dtype=dtypes)
     con.close()
 
-def main(db_name=DB_NAME, usage_table=USAGE_TABLE_NAME, test=False):
+def get_raw_data():
     # Initialize webdriver
     firefox_options = Options()
     firefox_options.add_argument('--headless')
@@ -110,12 +111,15 @@ def main(db_name=DB_NAME, usage_table=USAGE_TABLE_NAME, test=False):
     driver.close()
     df = pd.DataFrame(data)
     df['timestamp'] = dt.datetime.now()
+    return df
+
+def main(db_name=DB_NAME, usage_table=USAGE_TABLE_NAME, test=False):
+    df = get_raw_data()
     df = gen_update_time(df)
     df = find_unique(df, db_name, usage_table)
     if test:
         return df
-    else:
-        save_updates(df, db_name, usage_table)
+    save_updates(df, db_name, usage_table)
     
 if __name__ == '__main__':
     main()
