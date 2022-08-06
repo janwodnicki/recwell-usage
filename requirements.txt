@@ -2,3 +2,6 @@ dateparser
 pandas
 plotly
 selenium
+flask
+flask-restful
+gunicorn
