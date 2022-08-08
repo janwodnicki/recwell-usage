@@ -108,7 +108,7 @@ def get_raw_data():
     # Extract data from live-tracker elements and create df
     trackers = get_trackers(driver)
     data = [tracker_details(t) for t in trackers]
-    driver.close()
+    driver.quit()
     df = pd.DataFrame(data)
     df['timestamp'] = dt.datetime.now()
     return df
