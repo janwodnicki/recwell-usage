@@ -11,6 +11,10 @@ from settings import DB_NAME, USAGE_TABLE_NAME
 app = Flask(__name__)
 api = Api(app)
 
+@app.route('/')
+# ‘/’ URL is bound with hello_world() function.
+def hello_world():
+    return 'Hello World'
 
 class Usage(Resource):
 
