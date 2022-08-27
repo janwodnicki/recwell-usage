@@ -33,9 +33,25 @@ class Usage(Resource):
         data = pandas.read_sql(qry, con)
         con.close()
 
-        return {'data': data.to_dict()}
+        return data.to_dict()
+
+class LocationList(Resource):
+
+    def get(self):
+        con = sqlite3.connect(DB_NAME)
+        qry = f"""
+        SELECT location, update_time
+        FROM {USAGE_TABLE_NAME}
+        GROUP BY location
+        HAVING MAX(update_time) 
+        """
+        data = pandas.read_sql(qry, con)
+        con.close()
+
+        return data.to_dict()
 
 api.add_resource(Usage, '/')
+api.add_resource(Usage, '/locations')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8000)
