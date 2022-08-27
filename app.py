@@ -35,7 +35,7 @@ class Usage(Resource):
 
         return data.to_dict()
 
-class LocationList(Resource):
+class Locations(Resource):
 
     def get(self):
         con = sqlite3.connect(DB_NAME)
@@ -51,7 +51,7 @@ class LocationList(Resource):
         return data.to_dict()
 
 api.add_resource(Usage, '/')
-api.add_resource(Usage, '/locations')
+api.add_resource(Locations, '/locations')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8000)
