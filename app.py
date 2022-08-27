@@ -18,6 +18,7 @@ class Usage(Resource):
         start = request.args.get('start', type=lambda x: dateutil.parser.parse(x), default=datetime.date.min)
         end = request.args.get('end', type=lambda x: dateutil.parser.parse(x), default=datetime.date.max) 
         limit = request.args.get('limit', type=int, default=100000)
+        location = request.args.get('location', type=str)
         
         con = sqlite3.connect(DB_NAME)
         qry = f"""
@@ -25,6 +26,7 @@ class Usage(Resource):
         FROM {USAGE_TABLE_NAME}
         WHERE update_time >= '{start}'
         AND update_time <= '{end}'
+        AND location LIKE '%{location}%'
         ORDER BY update_time DESC
         LIMIT {limit}
         """
