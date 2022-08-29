@@ -40,10 +40,11 @@ class Locations(Resource):
     def get(self):
         con = sqlite3.connect(DB_NAME)
         qry = f"""
-        SELECT location, update_time
-        FROM {USAGE_TABLE_NAME}
+        SELECT location, 
+        MAX(update_time) AS max_update_time, 
+        MIN(update_time) AS min_update_time 
+        FROM {USAGE_TABLE_NAME} 
         GROUP BY location
-        HAVING MAX(update_time) 
         """
         data = pandas.read_sql(qry, con)
         con.close()
